@@ -1,0 +1,18 @@
+version: '2'
+services:
+  face-classification:
+    tty: true
+    stdin_open: true
+    container_name: face-classification-master
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      PYTHONPATH: "$PYTHONPATH:src"
+      FACE_CLASSIFIER_PORT: 8084
+    stdin_open: true
+    tty: true
+    expose:
+      - 8084
+    ports:
+      - 8084:8084
